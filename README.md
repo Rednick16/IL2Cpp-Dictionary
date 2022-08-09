@@ -51,7 +51,7 @@ void setup(){
 		auto key = PlayerKeys[i];
 		auto player = PlayerValues[i];
 		/*
-		int key = PlayerKeys[i];
+		void* key = PlayerKeys[i];
 		void* player = PlayerValues[i];
 		*/
 
