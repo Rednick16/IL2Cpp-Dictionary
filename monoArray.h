@@ -14,10 +14,10 @@ struct monoArray
 	{
 	    return (T)vector;
 	}	
-	TValue operator [] (int i) {
+	T operator [] (int i) {
 		return getPointer()[i];
 	}	
-	const TValue operator [] (int i) const {
+	const T operator [] (int i) const {
 		return getPointer()[i];
 	}
 };
