@@ -4,12 +4,12 @@ Dictionary used in mono
 # Usage
 
 ```cpp
-Dictionary<void**, void**> *get_Players(){
-	return reinterpret_cast<Dictionary<Transform**, void**> *(*)()>(0x0)();
+Dictionary<void*, void*> *get_Players(){
+	return reinterpret_cast<Dictionary<void*, void*> *(*)()>(0x0)();
 }
 
-Dictionary<int, void**> *get_PlayersByID(){
-	return reinterpret_cast<Dictionary<int, void**> *(*)()>(0x0)();
+Dictionary<int, void*> *get_PlayersByID(){
+	return reinterpret_cast<Dictionary<int, void*> *(*)()>(0x0)();
 }
 
 void setup(){
@@ -64,7 +64,7 @@ void setup(){
 	}
 
 	// Fields Demo
-	auto m_Players = *(Dictionary<void**, void**> **)((uint64_t)_this + 0x0 );
+	auto m_Players = *(Dictionary<void*, void*> **)((uint64_t)_this + 0x0 );
 	auto m_PlayerValues = m_Players->get_Values();
 	auto m_PlayerKeys = m_Players->get_Keys();
 
