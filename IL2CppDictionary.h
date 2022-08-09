@@ -9,10 +9,12 @@ struct IEqualityComparer
 	}
     int GetHashCode(T obj){
 		/*
-		optional
-		*/
+		optional System::InternalGetHashCode(obj o)
+		
 		return reinterpret_cast<int (*)(T)>(getRealOffset(0x242B9FC))(obj);
-	} // System::InternalGetHashCode(obj o)
+		*/
+	    return 0;
+	}
 };
 
 template<typename TKey, typename TValue> 
