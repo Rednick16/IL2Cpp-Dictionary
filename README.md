@@ -1,7 +1,7 @@
 # IL2Cpp-Dictionary
 Dictionary used in mono 
 
-#Usage
+# Usage
 
 ```cpp
 Dictionary<void**, void**> *get_Players(){
@@ -72,6 +72,6 @@ void setup(){
 }
 ```
 
-#Credits
-- shmoo
-- me(rednick16)
+# Credits
+- shmoo (monoArray)
+- Me (Rednick16->Dictionary)
