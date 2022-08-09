@@ -38,7 +38,7 @@ void setup(){
 		Use the key to get a single Item from dict
 		returns a player with that matching key
 		*/
-		auto gayPlayer = (*playerDictionary)[key];
+		auto gayPlayer = (*PlayersByID)[key];
 	}
 
 
@@ -60,7 +60,7 @@ void setup(){
 		Use the key to get a single Item from dict
 		returns a player with that matching key
 		*/
-		auto gayPlayer = (*playerDictionary)[key];
+		auto gayPlayer = (*get_Players)[key];
 	}
 
 	// Fields Demo
@@ -69,6 +69,13 @@ void setup(){
 	auto m_PlayerKeys = m_Players->get_Keys();
 
 	// Easy right have fun modding :)
+	
+	//@: Extras
+	
+	// Directly use a key
+	// monoString* somestr;
+	// (*m_Players)[somestr]; returns a value to needed object.
+	auto gayPlayer = (*m_Players)[m_PlayerKeys[0]];
 }
 ```
 
