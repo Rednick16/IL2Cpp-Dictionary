@@ -18,6 +18,13 @@ Dictionary<int, void*> *get_PlayersByID(){
 	return reinterpret_cast<Dictionary<int, void*> *(*)()>(0x0)();
 }
 
+Dictionary<int, void*>::KeyCollection *get_IDs(){
+    	// public static Dictionary.KeyCollection<int, vp_MPNetworkPlayer> get_IDs() { }
+
+    	// Dictionary<int, void*>::KeyCollection *_get_IDs() = (Dictionary<int, void*>::KeyCollection *(*)())getRealOffset(0x0);
+	return reinterpret_cast<Dictionary<int, void*>::KeyCollection *(*)()>(0x0)();
+}
+
 void setup(){
 
 	// Methods Demo
@@ -61,10 +68,17 @@ void setup(){
 		auto gayPlayer = (*Players)[key];
 	}
 
+    	auto p_ids = get_IDs();
+    	auto p_idsDictionary = p_ids->dictionary;
+    	for (int i = 0; i < p_idsDictionary->count; i++){
+        	// Im pretty sure this only contains keys soooo yea GL
+        auto key = p_idsDictionary->get_Keys()[i];
+    	}
+
 	// Fields Demo
 
     	// protected static Dictionary<Transform, vp_MPNetworkPlayer> m_Players; // 0x0
-    	// protected static Dictionary<int, vp_MPNetworkPlayer> m_PlayersByID; // 0x8
+   	// protected static Dictionary<int, vp_MPNetworkPlayer> m_PlayersByID; // 0x8
 
 	auto m_Players = *(Dictionary<void*, void*> **)((uint64_t)_this + 0x0 );
 	auto m_PlayerValues = m_Players->get_Values();
