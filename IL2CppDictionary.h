@@ -82,6 +82,8 @@ struct ValueCollection;
 	}
 
 	struct KeysCollection {
+		void *kass;
+		void *monitor;
 		Dictionary<TKey, TValue> *dictionary;
 
 		TKey operator [] (int i) {
@@ -100,6 +102,8 @@ struct ValueCollection;
 	};
 
 	struct ValueCollection {
+		void *kass;
+		void *monitor;
 		Dictionary<TKey, TValue> *dictionary;
 
 		TValue operator [] (int i) {
