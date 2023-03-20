@@ -1,34 +1,31 @@
 template <typename T>
 struct monoArray
 {
-	void* klass;
-	void* monitor;
+    	void* klass;
+    	void* monitor;
 	void* bounds;
-	int   max_length;
-	void* vector [1];
+    	int   max_length;
+    	T vector[65535];
 
-	int getLength()
-	{
-		return max_length;
-	}
+    	T &operator [] (int i) 
+    	{
+        	return vector[i];
+    	}
 
-	T getPointer()
-	{
-		return (T)vector;
-	}
+    	const T &operator [] (int i) const 
+    	{
+        	return vector[i];
+    	}
 
-	T operator [] (int i) {
-		return getPointer()[i];
-	}
-
-	const T operator [] (int i) const {
-		return getPointer()[i];
-	}
-
-	bool Contains(T item) {
-		for (int i = 0; i < max_length; i++){
-			if(getPointer()[i] == item) return true;
-		}
-		return false;
-	}
+    	bool Contains(T item) 
+    	{
+        	for (int i = 0; i < max_length; i++)
+        	{
+            		if(vector[i] == item) return true;
+        	}
+        	return false;
+    	}
 };
+
+template<typename T>
+using Array = monoArray<T>;
