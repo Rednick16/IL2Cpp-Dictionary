@@ -34,7 +34,7 @@ struct Dictionary
 
     int get_Count()
     {
-        return (count - freeCount);
+        return count;
     }
 
     KeysCollection get_Keys()
