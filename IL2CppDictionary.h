@@ -14,7 +14,9 @@ struct Dictionary
         TValue value;
     };
 
-    void *kass;
+    /* This would be a subclass of Il2CppObject but we don't have it, 
+        so redefine the dummy fields il2cppobject(klass, monitor) fields here */
+    void *klass;
     void *monitor;
     Array<int> *buckets;
     Array<Entry> *entries;
@@ -39,13 +41,15 @@ struct Dictionary
 
     KeysCollection get_Keys()
     {
-        if(!keys) keys = new KeysCollection(this);
+        /* this is technically correct.
+            the reason it's not fully correct, il2cppobject({klass, vtable}, monitor) is not populated, same thing for ValueCollection */
+        if (!keys) return KeysCollection(this);
         return (*keys);
     }
 
     ValueCollection get_Values()
     {
-        if(!values) values = new ValueCollection(this);
+        if (!values) return ValueCollection(this);
         return (*values);
     }
 
@@ -109,6 +113,8 @@ struct Dictionary
 
     struct KeysCollection 
     {
+        void *klass;
+        void *monitor;
         Dictionary *dictionary;
 
         KeysCollection(Dictionary *dictionary)
@@ -132,12 +138,14 @@ struct Dictionary
 
         int get_Count()
         {
-            return dictionary->get_Count();
+            return dictionary ? dictionary->get_Count() : 0;
         }
     };
 
     struct ValueCollection 
     {
+        void *klass;
+        void *monitor;
         Dictionary *dictionary;
 
         ValueCollection(Dictionary *dictionary)
@@ -161,7 +169,7 @@ struct Dictionary
 
         int get_Count()
         {
-            return dictionary->get_Count();
+            return dictionary ? dictionary->get_Count() : 0;
         }
     };
 };
